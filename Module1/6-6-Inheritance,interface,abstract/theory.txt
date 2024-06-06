@@ -1,0 +1,7 @@
+class 
+interface:collection of abstract methods
+abstract method : method without body part
+
+Normal Class can only access non abstract methods
+
+Abstract Class can  access abstract and non abstract methods
