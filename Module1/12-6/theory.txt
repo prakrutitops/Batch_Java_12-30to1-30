@@ -1,0 +1,27 @@
+Polymorphism:Many ways to perform anything
+
+1)Method Overloading:
+When two or more methods having a same name but number of parameters are diffrent
+
+
+2)Method Overriding:
+When two or more methods having a same name and number of parameters are also same.
+
+void a(int a,int b)
+{
+}
+void a(int a,int b)
+{
+
+}
+
+immutable->can not change
+mutable->can change
+
+immutbale:
+String
+
+mutable:
+StringBuilder
+StringBuffer
+
