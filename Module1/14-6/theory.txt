@@ -1,0 +1,18 @@
+Thread
+File I/O
+Serialization,Deserialization
+
+File Create
+
+FileOutputStream->Write
+FileInputStream->Read
+
+Your Firstname is : Vivek
+Your Lastname is : Vivek
+Your Email is : Vivek
+Your Password is : Vivek
+
+Serializable
+
+serialization->outputstream
+deserialization->inputstream
