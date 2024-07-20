@@ -1,0 +1,74 @@
+Views
+
+create view myview as select name,email
+
+Functions
+Agreegate Functions
+MAX
+MIN -> SELECT MIN(p_price) FROM products
+SUM -> 
+AVG
+FIRST -> SELECT price FROM products LIMIT 1;
+LAST ->SELECT * FROM products ORDER by p_price DESC LIMIT 1;
+
+
+
+Scalar Functions
+UCASE->SELECT UCASE(p_name) FROM products
+LCASE
+MID->SELECT MID(p_name,1,3) FROM products
+RANGE->RANGE(1,3)
+LENGTH->SELECT LENGTH(p_name) FROM products
+
+
+constraint key:
+primary key : data duplication avoid
+unique key : uniquely identify data
+foreign key: refrence pass on(INDEX)
+
+
+Joins:
+INNER JOIN->SELECT * from location JOIN products on location.id = products.id
+LEFT JOIN -> SELECT * from location LEFT JOIN products on location.id = products.id
+RIGHT JOIN -> SELECT * from location RIGHT JOIN products on location.id = products.id
+FULL JOIN -> 
+SELECT * from location LEFT JOIN products on location.id = products.id
+UNION
+SELECT * from location RIGHT JOIN products on location.id = products.id
+
+procedure: Procedure may have a return type
+function : compulsory return type
+
+DELIMITER //
+
+	CREATE PROCEDURE deleteproc(INOUT myid int) 
+    
+    BEGIN
+    	DELETE FROM users WHERE id =myid;
+    END //
+    
+
+DELIMITER ;
+
+
+Trigger:
+BEFORE INSERT
+AFTER INSERT
+BEFORE UPDATE
+AFTER UPDATE
+BEFORE DELETE
+AFTER DELETE
+
+DELIMITER $$
+
+	CREATE TRIGGER mytrigger3 BEFORE DELETE ON subscribers FOR EACH ROW
+    
+    BEGIN
+    	insert into audit_subscribers SET action_performed='deleted a new subscriber', subscriber_name =  old.fname;
+    END 
+    $$
+
+DELIMITER //
+
+
+
