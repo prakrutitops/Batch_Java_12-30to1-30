@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+	function checkalpha(elem,msg)
+	{
+			var alphaexp=/^[a-zA-Z]+$/;
+			if(elem.value.match(alphaexp))
+			{
+				return true;
+			}
+			else
+			{
+				alert(msg);
+				elem.focus();
+				return false;
+			}
+			
+			
+	}
+
+</script>
+
+</head>
+<body>
+
+	<form>
+		<input type="text" name="alpha" id="alpha"/>
+		<input type="submit" value="go" onclick="checkalpha(document.getElementById('alpha'),'Please Enter Alphabets only')"/>
+	</form>
+
+</body>
+</html>
