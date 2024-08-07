@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+	function nonempty(elem,msg)
+	{
+			if(elem.value.length==0)
+			{
+				alert(msg);
+				elem.focus();
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+	}
+
+</script>
+
+</head>
+<body>
+
+	<form>
+		<input type="text" name="name" id="name"/>
+		<input type="submit" value="go" onclick="nonempty(document.getElementById('name'),'Please Enter Some Value')"/>
+	</form>
+
+</body>
+</html>
