@@ -1,0 +1,13 @@
+Crud 
+
+1) web.xml->whatever file you want first just give the name
+2) Create login.html file and also give option for signup there
+3) Create signup.html file and click on submit button it will redirect on action page
+4) action page means your servlet file in servelt file get all data in String variable
+5) after that set all the data in respected model file
+6) once you set the data in model file after that create on dao file
+7) in dao file create connection and then create respected methods for signup,signin,insert,view etc..
+8) again switch in the servlet file and pass all data in dao from model
+9) dao will perform action and response will be show to servlet
+10) servlet will perform action according to dao's response
+ 
