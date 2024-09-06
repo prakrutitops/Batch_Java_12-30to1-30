@@ -60,7 +60,7 @@ ALTER TABLE info ADD surname varchar(60)
 ALTER TABLE TABLE_NAME ADD colname datatype AFTER colname
 ALTER TABLE info ADD email varchar(60) AFTER name
 
-5)Chnage Datatype:
+5)Change Datatype:
 ALTER TABLE TABLE_NAME MODIFY colname datatype
 ALTER TABLE info MODIFY email int
 

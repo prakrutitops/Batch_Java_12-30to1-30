@@ -54,7 +54,14 @@
 
 </head>
 <!-- body -->
-
+<%
+    
+	    response.setHeader("cache-control", "no-cache");
+	    response.setHeader("cache-control", "no-store");
+	    response.setHeader("pragma", "no-cache");
+	    response.setDateHeader("Expires", 0);
+    
+    %>
 <body class="main-layout">
    <!-- loader  -->
    <div class="loader_bg">
@@ -125,22 +132,34 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                            <ul class="navbar-nav mr-auto">
                               <li class="nav-item">
-                                 <a class="nav-link" href="index.html"> Home </a>
+                                 <a class="nav-link" href="index.jsp"> Home </a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="about.html">about</a>
+                                 <a class="nav-link" href="about.jsp">about</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="service.html">services</a>
+                                 <a class="nav-link" href="product.jsp">Products</a>
+                              </li>
+                              <%
+                              	if(session.getAttribute("project")!=null)
+                              	{
+                              		
+                              	
+                              %>
+                              
+                              <li class="nav-item">
+                                 <a class="nav-link" href="wishlist.jsp">Wishlist</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="team.html">team </a>
+                                 <a class="nav-link" href="cart.jsp">Cart</a>
                               </li>
+                              
+                              <%
+                              	}
+                              %>
+                              
                               <li class="nav-item">
-                                 <a class="nav-link" href="client.html">Clients</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="contact.html"> contact</a>
+                                 <a class="nav-link" href="contact.jsp"> contact</a>
                               </li>
                            </ul>
                         </div>
@@ -148,9 +167,28 @@
                   </div>
                   <div class="col-md-3 col-sm-5 d_none">
                     
+                       <%
+                       		if(session.getAttribute("project")!=null)
+                       		{
+                       			
+                       %>	
                        
+                       	 <a class="swd-button" href="logout.jsp">Logout</a>
+                       		
+                       	
+                       	<% 		
+                       		}
+                       		else
+                       		{
+                       			
+                       		
+                       %>
                         <a class="swd-button" href="signup.jsp">sign up</a>
                          <a class="swd-button" href="signin.jsp">sign in</a>
+                    
+                    	<%
+                       		}
+                    	%>
                     
                   </div>
                </div>

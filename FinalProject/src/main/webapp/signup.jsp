@@ -11,7 +11,14 @@
 <jsp:include page="header.jsp"/>
 
 
-
+<%
+    
+	    response.setHeader("cache-control", "no-cache");
+	    response.setHeader("cache-control", "no-store");
+	    response.setHeader("pragma", "no-cache");
+	    response.setDateHeader("Expires", 0);
+    
+    %>
 
 <div class="card bg-light">
 		<article class="card-body mx-auto" style="max-width: 400px;">

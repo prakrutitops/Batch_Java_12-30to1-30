@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<%
     
 	    response.setHeader("cache-control", "no-cache");
@@ -15,8 +16,13 @@
 	    response.setDateHeader("Expires", 0);
     
     %>
-<jsp:include page="header.jsp"/>
 
-<jsp:include page="footer.jsp"/>
+	<%
+			session.removeAttribute("project");
+			session.invalidate();
+			response.sendRedirect("index.jsp");
+	
+	%>
+
 </body>
 </html>

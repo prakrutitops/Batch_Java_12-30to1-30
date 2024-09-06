@@ -1,10 +1,10 @@
+<%@page import="com.model.SignupModel"%>
 <%@page import="com.dao.Dao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- 
- <jsp:useBean id="m" class="com.model.SignupModel"/>
- <jsp:setProperty property="*" name="m"/>  
-  
+<jsp:useBean id="m" class="com.model.SignupModel"/>
+<jsp:setProperty property="*" name="m"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,21 +14,6 @@
 <body>
 
 	<%
-		int status = Dao.signup(m);
-	
-		if(status>0)
-		{
-			response.sendRedirect("signin.jsp");
-		}
-		else
-		{
-			out.print("Error");
-		}
-	
-	
-	%>
-
-<%
     
 	    response.setHeader("cache-control", "no-cache");
 	    response.setHeader("cache-control", "no-store");
@@ -36,6 +21,26 @@
 	    response.setDateHeader("Expires", 0);
     
     %>
+	<%
+			SignupModel m2 =Dao.login(m);
+	
+			if(m2!=null)
+			{
+				//out.print("Login Success");
+				session.setAttribute("project",true);
+				session.setAttribute("email",m.getEmail());
+				
+				
+				response.sendRedirect("dashbaord.jsp");
+			}
+			else
+			{
+				out.print("Login Fail");
+			}
+	%>
+
+
+	
 
 </body>
 </html>

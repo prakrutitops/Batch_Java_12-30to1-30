@@ -10,55 +10,51 @@
 
 <jsp:include page="header.jsp"/>
 
-<%
-    
-	    response.setHeader("cache-control", "no-cache");
-	    response.setHeader("cache-control", "no-store");
-	    response.setHeader("pragma", "no-cache");
-	    response.setDateHeader("Expires", 0);
-    
-    %>
 
 
 <div class="card bg-light">
 		<article class="card-body mx-auto" style="max-width: 400px;">
-	
 		
 		
-		<form action="login.jsp">
+		
+		<form  action="https://api.web3forms.com/submit"  method="post" >
 			
-		
-			<!-- form-group// -->
-			<div class="form-group input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text"> <i class="fa fa-envelope"></i>
-					</span>
-				</div>
-				<input name="email" class="form-control" placeholder="Email address"
-					type="email" id="email">
-					
-			</div>
-			
+			<input type="hidden" name="access_key" value="e5f298f4-bab2-4741-9090-2e268b5e3a1a">
 			
 			<div class="form-group input-group">
 				<div class="input-group-prepend">
-					<span class="input-group-text"> <i class="fa fa-lock"></i>
+					<span class="input-group-text"> <i class="fa fa-user"></i>
 					</span>
 				</div>
-				<input class="form-control" placeholder="Enter password"
-					type="password" name="password" id="password">
+				<input name="name" class="form-control" placeholder="Full name"
+					type="text" id="name">
 			</div>
-			<!-- form-group// -->
-		
+			
+			<div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text"> <i class="fa fa-user"></i>
+					</span>
+				</div>
+				<input name="email" class="form-control" placeholder="Email"
+					type="text" id="email">
+			</div>
+			
+			<div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text"> <i class="fa fa-user"></i>
+					</span>
+				</div>
+				<input name="feedback" class="form-control" placeholder="feedback"
+					type="text" id="feedback">
+			</div>
+			
 			<!-- form-group// -->
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary btn-block">
-					Login</button>
+					Submit
+				</button>
 			</div>
-			<!-- form-group// -->
-			<p class="text-center">
-				Do you want to <a href="signup.jsp">Signup?</a>
-			</p>
+			
 		</form>
 		<span id="tops"></span>
 		</article>
