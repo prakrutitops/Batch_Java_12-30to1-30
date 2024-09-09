@@ -93,7 +93,7 @@ public class Dao
 		catch (Exception e)
 		{
 			e.printStackTrace();
-			e.printStackTrace();
+			
 		}
 		
 		return m2;

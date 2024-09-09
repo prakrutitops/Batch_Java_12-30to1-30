@@ -1,41 +1,66 @@
-<%@page import="com.dao.Dao"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+   
+    <%
+	
+    //get
+    String fname=request.getParameter("fullname");  
+    String email=request.getParameter("email");  
+    String phone=request.getParameter("phone");  
+	String pass=request.getParameter("password");
+	//String repass = request.getParameter("repassword");
+	
+	//set
+	session.setAttribute("fname", fname);
+	session.setAttribute("email", fname);
+	session.setAttribute("phone", fname);
+	session.setAttribute("pass", fname);
+	//session.setAttribute("repass", fname);
+	
+	
+	
  
- <jsp:useBean id="m" class="com.model.SignupModel"/>
- <jsp:setProperty property="*" name="m"/>  
-  
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+	   
+		
+		int number11 = 1 + (int)(9* Math.random());
+		int number22 = 1 + (int)(9* Math.random());
+		int number33 = 1 + (int)(9* Math.random());
+		int number44 = 1 + (int)(9* Math.random());
+		
+		
+		session.setAttribute("fname",fname);
+		session.setAttribute("email",email);
+		session.setAttribute("phone",phone);
+		session.setAttribute("pass",pass);
+		
+		
+		session.setAttribute("n1",number11);
+		session.setAttribute("n2",number22);
+		session.setAttribute("n3",number33);
+		session.setAttribute("n4",number44);
+		
+		System.out.print(number11+" "+number22+" "+number33+" "+number44);
+     	
+		RequestDispatcher rd = request.getRequestDispatcher("EmailSendingServlet2");
+		 request.setAttribute("e1", email);
+		session.setAttribute("n1",number11);
+		session.setAttribute("n2",number22);
+		session.setAttribute("n3",number33);
+		session.setAttribute("n4",number44);
+	    rd.forward(request, response);
+     
+     %> 
+      
 
-	<%
-		int status = Dao.signup(m);
 	
-		if(status>0)
-		{
-			response.sendRedirect("signin.jsp");
-		}
-		else
-		{
-			out.print("Error");
-		}
-	
-	
-	%>
 
-<%
-    
-	    response.setHeader("cache-control", "no-cache");
-	    response.setHeader("cache-control", "no-store");
-	    response.setHeader("pragma", "no-cache");
-	    response.setDateHeader("Expires", 0);
-    
-    %>
-
-</body>
-</html>
+	
+	
+      		
+			
+			
+      			
+      

@@ -12,5 +12,8 @@
 	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/jstl-1.2.jar"/>
 	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/mysql-connector.jar"/>
 	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/servlet-api.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/activation-1.1.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/javax.mail-1.6.2.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/mail_1.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

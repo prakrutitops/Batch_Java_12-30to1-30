@@ -29,6 +29,8 @@
 				//out.print("Login Success");
 				session.setAttribute("project",true);
 				session.setAttribute("email",m.getEmail());
+				session.setAttribute("name",m2.getFullname());
+				session.setAttribute("num",m2.getPhone());
 				
 				
 				response.sendRedirect("dashbaord.jsp");

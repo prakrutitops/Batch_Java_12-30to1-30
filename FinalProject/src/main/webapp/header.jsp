@@ -90,6 +90,9 @@
                         <li> <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
                            </a>
                         </li>
+                        
+                        
+                        
                      </ul>
                      
                      <form action="#">
@@ -100,6 +103,22 @@
                  
                  
                </div>
+               		<%
+               			if(session.getAttribute("project")!=null)
+               			{
+               				
+               			
+               		%>
+               		<div style="margin-left: 900px; color: white;">
+                      	<p>Your Name is :<%=session.getAttribute("name") %></p>
+                        <p>Your Email is :<%=session.getAttribute("email") %></p>
+                        <p>Your Number is :<%=session.getAttribute("num") %></p>
+                     </div>
+                     
+                     
+                     <%
+               			}
+                     %>
             </div>
          </div>
          <div class="header_midil">
