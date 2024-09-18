@@ -30,8 +30,10 @@
              <input type="number" name="otp4" />
           
         </div>
+        <br>
+        <br>
         
-        <button type="submit">Verify OTP</button>
+        <input type="submit" value="Verify OTP"/>
       
       </form>
     </div>

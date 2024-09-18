@@ -15,9 +15,9 @@
 	
 	//set
 	session.setAttribute("fname", fname);
-	session.setAttribute("email", fname);
-	session.setAttribute("phone", fname);
-	session.setAttribute("pass", fname);
+	session.setAttribute("email", email);
+	session.setAttribute("phone", phone);
+	session.setAttribute("pass", pass);
 	//session.setAttribute("repass", fname);
 	
 	
