@@ -61,9 +61,12 @@
             <p>Price: <%= m.getP_price() %></p>
             
            
-           
-            
-        
+                 
+         <form action="payment.jsp">
+          		<input type="hidden" name="id" value="<%=m.getId()%>">
+            	<input type="submit" class="swd-button" value="Proceed to Payment">
+         </form>
+      
         
           
        

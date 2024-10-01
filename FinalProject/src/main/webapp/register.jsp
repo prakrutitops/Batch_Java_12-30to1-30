@@ -11,7 +11,7 @@
     String email=request.getParameter("email");  
     String phone=request.getParameter("phone");  
 	String pass=request.getParameter("password");
-	//String repass = request.getParameter("repassword");
+	String repass = request.getParameter("repassword");
 	
 	//set
 	session.setAttribute("fname", fname);
@@ -22,9 +22,43 @@
 	
 	
 	
- 
-	   
-		
+	if(email==null||email.trim().equals(""))
+    {  
+    	out.print("<p>Please enter Email!</p>");  
+    }
+	if(phone==null||phone.trim().equals(""))
+	{
+		out.print("<p>Please enter Phone!</p>");  
+	}
+	
+	if(pass==null||pass.trim().equals(""))
+	{
+		out.print("<p>Please enter Password!</p>");  
+	}
+	if(repass==null||fname.trim().equals(""))
+	{
+		out.print("<p>Please enter Repassword!</p>");  
+	} 
+	
+		try
+    	{  
+    		Class.forName("com.mysql.jdbc.Driver");
+    		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/webwing2","root","");  
+    		PreparedStatement ps=con.prepareStatement("select * from signup where email=?");  
+    		ps.setString(1, email);
+    		ResultSet rs=ps.executeQuery();  
+      		if(rs.next()) 
+      		{      	
+      			out.println("<h1>Email Id Already exits, try entering new Email Address.</h1>");   	
+    			//session.setAttribute("wrongvalue",101);
+      			//response.sendRedirect("signup.jsp");
+    	
+    			
+    			
+      		}
+      		else
+      		{
+      		
 		int number11 = 1 + (int)(9* Math.random());
 		int number22 = 1 + (int)(9* Math.random());
 		int number33 = 1 + (int)(9* Math.random());
@@ -51,7 +85,13 @@
 		session.setAttribute("n3",number33);
 		session.setAttribute("n4",number44);
 	    rd.forward(request, response);
-     
+      		
+      		}
+    	}
+      		catch(Exception e)
+      		{
+      			e.printStackTrace();
+      		}
      %> 
       
 

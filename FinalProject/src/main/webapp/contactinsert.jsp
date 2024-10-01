@@ -1,5 +1,8 @@
+<%@page import="com.dao.Dao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+	 <jsp:useBean id="m" class="com.model.ContactModel"/>
+	 <jsp:setProperty property="*" name="m"/>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,17 +11,18 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"/>
+<%
 
-
-
-<div class="card bg-light">
-		<article class="card-body mx-auto" style="max-width: 400px;">
+	int status = Dao.contactinsert(m);
+	
+	if(status>0)
+	{
 		
-		
-		
-		<form  action="contactinsert.jsp"  method="post" >
+	%>
+	
+	<form  action="https://api.web3forms.com/submit"  method="post" >
 			
+			<input type="hidden" name="access_key" value="e5f298f4-bab2-4741-9090-2e268b5e3a1a">
 			
 			<div class="form-group input-group">
 				<div class="input-group-prepend">
@@ -26,7 +30,7 @@
 					</span>
 				</div>
 				<input name="fullname" class="form-control" placeholder="Full name"
-					type="text" id="name">
+					type="hidden" id="name" value="<%=m.getFullname()%>">
 			</div>
 			
 			<div class="form-group input-group">
@@ -35,9 +39,8 @@
 					</span>
 				</div>
 				<input name="email" class="form-control" placeholder="Email"
-					type="text" id="email">
+					type="hidden" id="email" value="<%=m.getEmail()%>">
 			</div>
-			
 			
 			<div class="form-group input-group">
 				<div class="input-group-prepend">
@@ -45,7 +48,7 @@
 					</span>
 				</div>
 				<input name="mobileno" class="form-control" placeholder="Email"
-					type="text" id="email">
+					type="hidden" id="email" value="<%=m.getMobileno()%>">
 			</div>
 			
 			<div class="form-group input-group">
@@ -54,13 +57,13 @@
 					</span>
 				</div>
 				<input name="feedback" class="form-control" placeholder="feedback"
-					type="text" id="feedback">
+					type="hidden" id="feedback" value="<%=m.getFeedback()%>">
 			</div>
 			
 			<!-- form-group// -->
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary btn-block">
-					Submit
+					Send Email
 				</button>
 			</div>
 			
@@ -68,11 +71,21 @@
 		<span id="tops"></span>
 		</article>
 	</div>
-	<!-- card.// -->
+	
+	
+	
+	<% 	
+		//response.sendRedirect("");
+	}
+	else
+	{
+		
+	}
 
+	%>
+	
+	
 
-
-<jsp:include page="footer.jsp"/>
 
 </body>
 </html>

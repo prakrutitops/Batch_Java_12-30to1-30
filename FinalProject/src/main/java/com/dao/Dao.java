@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
+import com.model.AdminModel;
 import com.model.CartModel;
+import com.model.ContactModel;
+import com.model.PlacedOrderModel;
 import com.model.ProductModel;
 import com.model.SignupModel;
 import com.model.WishlistModel;
@@ -303,9 +306,196 @@ public class Dao
 		
 		return status;
 	}
+	public static AdminModel adminlogin(AdminModel m)
+	{
+		Connection con = Dao.getconnect();
+		AdminModel m2 =null;	
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("select * from adminlogin where username=? and password =?");
+	
+			ps.setString(1,m.getUsername());
+			ps.setString(2,m.getPassword());
+			
+			
+			ResultSet set = ps.executeQuery();
+			
+			if(set.next())
+			{
+				int id = set.getInt(1);
+				String username = set.getString(2);
+				String password = set.getString(3);
+				
+				m2 = new AdminModel();
+				m2.setId(id);
+				m2.setUsername(username);
+				m2.setPassword(password);
+			}
+			else
+			{
+				System.out.println("Invalid Credentials");
+			}
+		} 
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			
+		}
+		
+		return m2;
+	}
+	
+
+	public static List<ContactModel> viewcontact()
+	{
+		
+		List<ContactModel> plist = new ArrayList<>();
+		
+		Connection con = Dao.getconnect();
+		
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("select * from contact");
+			ResultSet set = ps.executeQuery();
+		
+			while(set.next())
+			{
+				
+				int id = set.getInt(1);
+				String name = set.getString(2);
+				String email = set.getString(3);
+				String mnum = set.getString(4);
+				String feedback = set.getString(5);
+				//String pimage = set.getString(5);
+				 
+				
+				
+				ContactModel cm = new ContactModel();
+				cm.setId(id);
+				cm.setFullname(name);
+				cm.setEmail(email);
+				cm.setMobileno(mnum);
+				cm.setFeedback(feedback);
+				
+				plist.add(cm);
+				
+			}
+		} 
+		catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return plist;
+		
+	}
+	
+	public static int contactinsert(ContactModel m)
+	{
+		Connection con = Dao.getconnect();
+		int status = 0;
+		
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("insert into contact(fullname,email,mobileno,feedback) values (?,?,?,?)");
+	
+			ps.setString(1,m.getFullname());
+			ps.setString(2,m.getEmail());
+			ps.setString(3,m.getMobileno());
+			ps.setString(4,m.getFeedback());
+			
+			status = ps.executeUpdate();
+		} 
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			e.printStackTrace();
+		}
+		
+		return status;
+	}
+	public static int deletefromcart(int id)
+	{
+		
+		int status = 0;
+		
+		Connection con = Dao.getconnect();
+		
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("delete from cart where id=?");
+			ps.setInt(1, id);
+			status = ps.executeUpdate();
+			
+		}
+		catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return status;
+	}
 	
 	
-	
-	
-	
+	public static List<PlacedOrderModel> placedviewproducts()
+	{
+		
+		List<PlacedOrderModel> plist = new ArrayList<>();
+		
+		Connection con = Dao.getconnect();
+		
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("select * from placedorder");
+			ResultSet set = ps.executeQuery();
+		
+			while(set.next())
+			{
+				
+				int pid = set.getInt(1);
+				String pname = set.getString(2);
+				String pprice = set.getString(3);
+				String pdes = set.getString(4);
+				//String pimage = set.getString(5);
+				 
+				byte[] imgData = set.getBytes(5);
+				String encode = Base64.getEncoder().encodeToString(imgData);
+				
+				String email = set.getString(6);
+				int id = set.getInt(7);
+				String status = set.getString(8);
+				
+				
+				PlacedOrderModel pm = new PlacedOrderModel();
+				pm.setPid(pid);
+				pm.setP_name(pname);
+				pm.setP_price(pprice);
+				pm.setP_des(pdes);
+				pm.setP_image(encode);	
+				pm.setEmail(email);
+				pm.setId(id);
+				pm.setStatus(status);
+				
+				
+				plist.add(pm);
+				
+			}
+		} 
+		catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return plist;
+		
+	}
 }
