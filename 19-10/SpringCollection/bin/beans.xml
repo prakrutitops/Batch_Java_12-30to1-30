@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="t1" class="com.model.Model">
+	
+		<property name="list">
+			<list>
+				<value>One</value>
+				<value>Two</value>
+				<value>Two</value>
+			</list>
+			
+		</property>
+		
+		<property name="set">
+			<set>
+				<value>One</value>
+				<value>Two</value>
+				<value>Two</value>
+			</set>
+			
+		</property>
+		<property name="map">
+			<map><entry key="tops" value="101"/></map>
+			
+		</property>
+		<property name="properties">
+			
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			</props>
+		</property>
+	
+	</bean>
+
+
+</beans>
