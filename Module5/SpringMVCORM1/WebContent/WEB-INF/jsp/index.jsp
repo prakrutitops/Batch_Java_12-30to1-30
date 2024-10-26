@@ -8,7 +8,17 @@
 </head>
 <body>
 
-	Hello From Tops
+	<form action="insert" name="insert">
+		<p>
+		Enter Name: <input type="text" name="name">
+		</p>
+		
+		<p>
+		Enetr Email:<input type="text" name="email">
+		</p>
+		
+		<input type="submit" value="Insert">
+	</form>
 
 </body>
 </html>
